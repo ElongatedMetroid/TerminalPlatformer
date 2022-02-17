@@ -1,10 +1,20 @@
 #ifndef COMMON_H_
 #define COMMON_H_
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAP_DATA_PRINT_SIZE 875 // Height: 25, Width: 35 | 25*35=875
+#define MAP_DATA_PRINT_SIZE 2625 // Height: 25, Width: 105
+#define MAP_DATA_WIDTH 105
+#define MAP_DATA_HEIGHT 25
+
+extern pthread_t input_thread_id;
+extern char *debug_map_data;
+
+extern _Atomic int32_t player_pos;
+
+extern _Atomic int32_t map_pos_offset;
 
 #ifdef DEBON
 /*
