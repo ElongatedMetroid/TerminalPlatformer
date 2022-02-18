@@ -1,5 +1,6 @@
 #include "../include/signalhandler.h"
-#include <stdlib.h>
+
+struct termios oldt;
 
 void handle_exit(int signum) {
   if ((signum = SIGINT)) {
@@ -10,5 +11,7 @@ void handle_exit(int signum) {
 
   // properly save the game here
 
+  // restore the old terminal settings
+  tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
   exit(EXIT_SUCCESS);
 }

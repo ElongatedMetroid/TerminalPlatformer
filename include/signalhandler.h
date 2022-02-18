@@ -6,6 +6,10 @@
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <termios.h>
+
+extern struct termios oldt;
 
 void handle_exit(int signum);
 
