@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define CLEAR "\e[1;1H\e[2J"
+
 #define MAP_DATA_PRINT_SIZE 2625 // Height: 25, Width: 105
 #define MAP_DATA_WIDTH 105
 #define MAP_DATA_HEIGHT 25

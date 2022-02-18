@@ -22,4 +22,4 @@ void print_mapdata_from_curr_mappos(char *mapdata) {
 		index+=map_pos_offset + 1;
 		putc('\n', stdout);
 	}
-}:
+}
