@@ -3,11 +3,10 @@
 struct termios oldt;
 
 void handle_exit(int signum) {
-  if ((signum = SIGINT)) {
+  if (signum == SIGINT)
     printf("Recived Ctrl+C, Saving and Exiting........\n");
-  } else if ((signum = SIGSEGV)) {
+  if (signum == SIGSEGV)
     printf("Recived Segmentation Fault, Now Saving and Exiting.....\n");
-  }
 
   // properly save the game here
 
