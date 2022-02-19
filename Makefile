@@ -1,6 +1,6 @@
 CC=gcc
 SRC=src/*.c
-BIN=bin/
+BIN=bin
 ARGS=-Wall -O2
 LIBS=-pthread
 
