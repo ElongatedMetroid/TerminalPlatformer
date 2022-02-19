@@ -6,15 +6,17 @@
 #include <stdlib.h>
 
 #define CLEAR "\e[1;1H\e[2J"
+#define QUIT_FROM_KEYPRESS                                                     \
+  (int)7777 // number to send to handle_exit when recived q keypress
 
-#define MAP_DATA_PRINT_SIZE 2625 // Height: 25, Width: 105
+#define MAP_DATA_PRINT_SIZE 2940 // Height: 28 (Read note bellow), Width: 105
 #define MAP_DATA_WIDTH 105
-#define MAP_DATA_HEIGHT 25
+#define MAP_DATA_HEIGHT                                                        \
+  28 // PLEASE NOTE that the terminal heigh is really 25 but from some currently
+     // unknow reason its only printing to 22
 
 extern pthread_t input_thread_id;
-extern char *debug_map_data;
-
-extern _Atomic int32_t player_pos;
+extern char debug_map_data[BUFSIZ];
 
 extern _Atomic int32_t map_pos_offset;
 
