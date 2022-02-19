@@ -1,1 +1,6 @@
-DisableFormat: true
+Language: C
+PointerAlignment: Right
+AlignConsecutiveMacros: true
+AlignConsecutiveAssignments: true
+AlwaysBreakBeforeMultilineStrings: false
+IndentPPDirectives: AfterHash
