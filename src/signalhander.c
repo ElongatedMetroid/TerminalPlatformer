@@ -3,10 +3,12 @@
 struct termios oldt;
 
 void handle_exit(int signum) {
-  if (signum == SIGINT)
+  if (signum == SIGINT) // got ctrl+c
     printf("Recived Ctrl+C, Saving and Exiting........\n");
-  if (signum == SIGSEGV)
+  if (signum == SIGSEGV) // got a segmentation fault
     printf("Recived Segmentation Fault, Now Saving and Exiting.....\n");
+  if (signum == QUIT_FROM_KEYPRESS) // got a q keypress
+    printf("Recived q keypress, Now Saving and Exiting........\n");
 
   // properly save the game here
 

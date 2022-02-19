@@ -1,7 +1,10 @@
 #include "../include/input.h"
 
 void *input_thread(void *ptr) {
+  // structure for our new terminal settings that do not require enter to be
+  // pressed for our program to recive input
   static struct termios newt;
+  // char for reciving input
   char ch = '\0';
 
   /* tcgetattr gets the parameters of the current terminal
@@ -22,8 +25,10 @@ void *input_thread(void *ptr) {
    */
   tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 
+  // go forever
   while (1) {
     ch = getchar();
+    // check what the input we got was
     switch (ch) {
     case 'a': // move left
       map_pos_offset--;
@@ -37,7 +42,13 @@ void *input_thread(void *ptr) {
     case 'p': // pause
 
       break;
+    case 'q': // quit
+      // take advantage of our function for signals but we will use it
+      // for a different kind of exiting
+      handle_exit(QUIT_FROM_KEYPRESS);
+      break;
     }
+    // set char to NUL just incase
     ch = '\0';
   }
 }

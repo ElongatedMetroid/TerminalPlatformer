@@ -6,11 +6,13 @@
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <termios.h>
+#include <unistd.h>
 
+// structure for storing our original terminal settings
 extern struct termios oldt;
 
+// handle exiting, most times from signals
 void handle_exit(int signum);
 
 #endif
