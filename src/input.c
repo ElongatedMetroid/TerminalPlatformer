@@ -1,5 +1,4 @@
 #include "../include/input.h"
-#include <unistd.h>
 
 void *input_thread(void *ptr) {
   static struct termios newt;
@@ -25,16 +24,20 @@ void *input_thread(void *ptr) {
 
   while (1) {
     ch = getchar();
-    if (ch == 'a') { // move left
+    switch (ch) {
+    case 'a': // move left
       map_pos_offset--;
-	  printf(CLEAR);
-	  print_mapdata_from_curr_mappos(debug_map_data);
-    }
-    if (ch == 'd') { // move right
+      break;
+    case 'd': // move right
       map_pos_offset++;
-	  printf(CLEAR);
-	  print_mapdata_from_curr_mappos(debug_map_data);
-	}
-	ch = '\0';
+      break;
+    case ' ': // jump
+
+      break;
+    case 'p': // pause
+
+      break;
+    }
+    ch = '\0';
   }
 }
