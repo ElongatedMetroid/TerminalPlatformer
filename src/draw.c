@@ -22,7 +22,7 @@ void print_mapdata_from_curr_mappos(char *mapdata) {
     // data will be able to be drawn
     if (rows == 0)
       print_map_hud();
-    if (rows == 20)
+    if (rows == player_height_row)
       mapdata[player_pos] = '#';
 
     // loop until we have printed 105 characters (MAP_DATA_WIDTH) or 1 row
@@ -50,7 +50,7 @@ void print_mapdata_from_curr_mappos(char *mapdata) {
     // next row starting at the right position
     index += map_pos_offset + 1;
 
-    if (rows == 20)
+    if (rows == player_height_row)
       mapdata[player_pos] = ' ';
 
     // add newline since the array does not provide any

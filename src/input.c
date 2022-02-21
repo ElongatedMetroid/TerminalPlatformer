@@ -37,7 +37,7 @@ void *input_thread(void *ptr) {
       map_pos_offset++;
       break;
     case ' ': // jump
-
+      isJumping = true;
       break;
     case 'p': // pause
 

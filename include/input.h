@@ -2,6 +2,7 @@
 #define INPUT_H_
 
 #include "common.h"
+#include "player.h"
 #include "signalhandler.h" //for oldt settings to restore at exit
 #include <termios.h>
 #include <unistd.h>
