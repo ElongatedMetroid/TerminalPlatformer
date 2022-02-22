@@ -2,6 +2,7 @@
 #define DRAW_H_
 
 #include "common.h"
+#include "mapdata.h"
 #include "player.h"
 #include <stdio.h>
 #include <string.h>
@@ -13,6 +14,6 @@ void print_mapdata_from_curr_mappos(char *mapdata);
 void print_map_hud();
 
 // thread for drawing mapdata (from current mappos)
-void *draw_thread(void *level_data);
+void *draw_thread();
 
 #endif

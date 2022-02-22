@@ -21,7 +21,7 @@ int main() {
     ERROR("Could not create input thread!\n");
 
   // create thread for drawing mapdata
-  if (pthread_create(&draw_thread_id, NULL, draw_thread, debug_map_data) != 0)
+  if (pthread_create(&draw_thread_id, NULL, draw_thread, NULL) != 0)
     ERROR("Could not create draw thread!\n");
 
   // create thread for the player jumping this is for pauses between jumping and

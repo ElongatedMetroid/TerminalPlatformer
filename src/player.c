@@ -3,9 +3,15 @@
 _Atomic int32_t player_height_row = 20;
 _Atomic int32_t player_pos = 0;
 int32_t player_ground_row = 20;
+
 int8_t jump_height = 6;
 int32_t jump_fall_speed = 1200000;
 bool isJumping = false;
+
+int16_t current_level_number = 1;
+
+// TODO find a good and effiecient way to return levels
+char *return_current_level(int level_number) { return level_1_1; }
 
 void *player_jump_thread(void *ptr) {
   while (1) {
@@ -28,8 +34,8 @@ void *player_jump_thread(void *ptr) {
         // fall half of jump_heigh each incrementation
         player_height_row += jump_height / 2;
       }
-		
-	  // we are done with our jump "function"
+
+      // we are done with our jump "function"
       isJumping = false;
     }
   }

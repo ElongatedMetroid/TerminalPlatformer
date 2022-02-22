@@ -47,6 +47,15 @@ void *input_thread(void *ptr) {
       // for a different kind of exiting
       handle_exit(QUIT_FROM_KEYPRESS);
       break;
+// if you are using a debug build
+#ifdef DEBON
+    case 'n': // jump to next level
+      // next level
+      break;
+    case 'b': // go back a level
+      // back a level
+      break;
+#endif
     }
     // set char to NUL just incase
     ch = '\0';

@@ -1,6 +1,7 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
+#include "mapdata.h"
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -26,6 +27,10 @@ extern int32_t jump_fall_speed;
 // if it is set to true the if statment in the jump thread
 extern bool isJumping;
 
+// the current level you are on
+extern int16_t current_level_number;
+
+char *return_current_level(int level_number);
 void *player_jump_thread(void *ptr);
 
 #endif

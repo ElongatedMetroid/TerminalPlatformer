@@ -9,11 +9,15 @@
 #define QUIT_FROM_KEYPRESS                                                     \
   (int)7777 // number to send to handle_exit when recived q keypress
 
-#define MAP_DATA_PRINT_SIZE 2940 // Height: 28 (Read note bellow), Width: 105
+#define OUT_OF_CONTROL_INDEX                                                   \
+  100000 // used to check if the index has gone out of control
+
+#define DEBUG_MAP_DATA_SIZE                                                    \
+  100000 // size of array used for debuging so we dont have to remesure
+
+#define MAP_DATA_PRINT_SIZE 2625
 #define MAP_DATA_WIDTH 105
-#define MAP_DATA_HEIGHT                                                        \
-  28 // PLEASE NOTE that the terminal heigh is really 25 but from some currently
-     // unknow reason its only printing to 22
+#define MAP_DATA_HEIGHT 25
 
 extern pthread_t input_thread_id;
 extern char debug_map_data[BUFSIZ];

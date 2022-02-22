@@ -1,10 +1,11 @@
 #include "../include/draw.h"
 
-void *draw_thread(void *level_data) {
+void *draw_thread() {
   // go forever, clear screen, update screen, wait
+  strcpy(current_level_data, return_current_level(current_level_number));
   while (1) {
     printf(CLEAR);
-    print_mapdata_from_curr_mappos((char *)level_data);
+    print_mapdata_from_curr_mappos((char *)current_level_data);
     usleep(20000);
   }
 }
@@ -29,9 +30,6 @@ void print_mapdata_from_curr_mappos(char *mapdata) {
     for (int cols = 0; cols < MAP_DATA_WIDTH; ++cols) {
       // print the next character
       printf("%c", mapdata[index]);
-      // make sure the index has not gone over the max print size (25x 105x)
-      if (index >= MAP_DATA_PRINT_SIZE)
-        return;
       // increment index
       index++;
     }
@@ -39,15 +37,14 @@ void print_mapdata_from_curr_mappos(char *mapdata) {
     // keep going through the array until we hit the next row we have to do this
     // because we are not printing the whole array at once
     while (mapdata[index] != '-') {
-      if (index >= MAP_DATA_PRINT_SIZE)
+      // make sure the index has not gone out of control
+      if (index >= OUT_OF_CONTROL_INDEX)
         return;
       index++;
     }
 
-    if (index >= MAP_DATA_PRINT_SIZE)
-      return;
-    // add the map position offset to the index because we want to print the
-    // next row starting at the right position
+    //  add the map position offset to the index because we want to print the
+    //  next row starting at the right position
     index += map_pos_offset + 1;
 
     if (rows == player_height_row)
