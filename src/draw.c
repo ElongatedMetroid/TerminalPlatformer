@@ -5,12 +5,12 @@ void *draw_thread() {
   strcpy(current_level_data, return_current_level(current_level_number));
   while (1) {
     printf(CLEAR);
-    print_mapdata_from_curr_mappos((char *)current_level_data);
+    draw_mapdata_from_curr_mappos((char *)current_level_data);
     usleep(20000);
   }
 }
 
-void print_mapdata_from_curr_mappos(char *mapdata) {
+void draw_mapdata_from_curr_mappos(char *mapdata) {
   // set index to the map position offset because we want to start printing the
   // array at the offset, not anything before
   int index = map_pos_offset;
@@ -22,9 +22,9 @@ void print_mapdata_from_curr_mappos(char *mapdata) {
     // the map HUD will always we drawn at the top of the screen before any map
     // data will be able to be drawn
     if (rows == 0)
-      print_map_hud();
-    if (rows == player_height_row)
-      mapdata[player_pos] = '#';
+      draw_map_hud();
+    if (rows == player_y_level)
+      mapdata[player_pos] = '@';
 
     // loop until we have printed 105 characters (MAP_DATA_WIDTH) or 1 row
     for (int cols = 0; cols < MAP_DATA_WIDTH; ++cols) {
@@ -47,7 +47,7 @@ void print_mapdata_from_curr_mappos(char *mapdata) {
     //  next row starting at the right position
     index += map_pos_offset + 1;
 
-    if (rows == player_height_row)
+    if (rows == player_y_level)
       mapdata[player_pos] = ' ';
 
     // add newline since the array does not provide any
@@ -55,4 +55,4 @@ void print_mapdata_from_curr_mappos(char *mapdata) {
   }
 }
 
-void print_map_hud() { puts("Coins:  Score:"); }
+void draw_map_hud() { puts("Coins:  Score:"); }

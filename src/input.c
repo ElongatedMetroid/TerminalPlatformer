@@ -55,6 +55,9 @@ void *input_thread(void *ptr) {
     case 'b': // go back a level
       // back a level
       break;
+    case 'f': // debug function
+      player_ground_row = 19;
+      break;
 #endif
     }
     // set char to NUL just incase

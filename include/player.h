@@ -13,9 +13,10 @@ extern _Atomic int32_t player_pos;
 
 // this variable is the players heigh on the whole map data, the heigh is in
 // rows player_height = 20 meaning player is on row 20:
-extern _Atomic int32_t player_height_row;
+extern _Atomic int32_t player_y_level;
 
-// this variable is the where the player will stop falling
+// this variable is the where the player will stop falling, the number this is
+// has to be reachable by a factor of player_y_level
 extern int32_t player_ground_row;
 
 // how high the player will jump in rows this number has to be even

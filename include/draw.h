@@ -9,9 +9,9 @@
 #include <unistd.h>
 
 // print mapdata from the current map_pos_offset
-void print_mapdata_from_curr_mappos(char *mapdata);
+void draw_mapdata_from_curr_mappos(char *mapdata);
 // print the HUD, used by print_mapdata_from_curr_mappos
-void print_map_hud();
+void draw_map_hud();
 
 // thread for drawing mapdata (from current mappos)
 void *draw_thread();
